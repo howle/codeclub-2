@@ -1,30 +1,20 @@
-/**
- * A map of the random responses
- * @param {Object} respLookupTbl
- */
-const respLookupTbl = {
-  responses: ["Response 1", "Response 2", "Response 3", "Response 4"],
-};
-
-/**
- * Funtion that returns a sud0random integer based on the max size passed in
- * @param {*} max
- */
-const getRandomInt = (max = 2) => {
-  return Math.floor(Math.random() * max);
-};
-
 export default {
-  /**
-   * Main even handler for the request
-   * @param {*} request
-   */
-  fetch(request) {
-    //
-    if (request) {
-      return new Response(respLookupTbl.responses[getRandomInt(4)]);
-    } else {
-      return new Response(`The request object does not exist`);
-    }
-  },
-};
+fetch(request) {
+
+ const _greets = {
+    0: 'hello',
+    1: 'bonjour',
+    2: 'guten tag',
+    3: 'hola', };   
+const _earth = {
+    0: 'mundo',
+    1: 'world',
+    2: 'monde',
+    3: 'welt,', };   
+
+!!(request)
+return new Response(`${_greets[Math.floor(Math.random() * 4)]} ${request.method}  ${_earth[Math.floor(Math.random() * 4)]}`);
+
+
+}
+}
